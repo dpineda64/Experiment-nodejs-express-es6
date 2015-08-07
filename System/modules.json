@@ -1,0 +1,6 @@
+{
+  "application": "testEs6",
+  "modules": {
+    "mainModule": "Main"
+  }
+}
