@@ -9,7 +9,7 @@ const config = {
   certFile: process.env.CERT || '',
   keyFile: process.env.KEY || '',
   secretFile: process.env.SECRET || path.join(__dirname, '/secret_session'),
-  SystemPath: path.join(__dirname, '/System');
+  SystemPath: path.join(__dirname, '/System'),
   cert: '',
   key: '',
   loginURL: '/login',
