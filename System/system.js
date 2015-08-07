@@ -40,9 +40,12 @@ const csfrValue = (req) => {
 };
 
 // Helmet Setup
-app.use(helmet.hidePoweredBy({
-  setTo: 'PHP 4.2.0'
-}));
+app.use(helmet.hidePoweredBy());
+
+// Example Route
+//const routes = require('./routes/index');
+// app.use('/', routes);
+
 
 // Modules Helper
 require('./Helpers/modules')(app, config);
