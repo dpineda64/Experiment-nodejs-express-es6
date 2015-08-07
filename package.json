@@ -1,7 +1,7 @@
 {
-  "name": "klasergt",
+  "name": "Experiment-nodejs-express-es6",
   "version": "0.0.1",
-  "description": "KlaserGT",
+  "description": "A little experiment using es6 with nodejs-express",
   "main": "bootstrap.js",
   "scripts": {
     "test": "mocha test",
