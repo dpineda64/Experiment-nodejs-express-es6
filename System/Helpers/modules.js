@@ -16,12 +16,12 @@ module.exports = (app , config) => {
         return data;
       });
       installer = JSON.parse(installer);
-      this.modules = installer;
+      this.modules = installer.modules;
     }
     init(){
       const installed = this.modules;
       for(var key in installed){
-        require(config.SystemPath +  '/Modules/' + installer[key] + '/app')(app);
+        require(config.SystemPath +  '/Modules/' + installed[key] + '/' + installed[key])(app);
       }
     }
   }
