@@ -10,6 +10,10 @@ const config = {
   keyFile: process.env.KEY || '',
   secretFile: process.env.SECRET || path.join(__dirname, '/secret_session'),
   SystemPath: path.join(__dirname, '/System'),
+  database: {
+    "name": "es6NodeTest",
+    "url": process.env.MONGO_url || 'mongodb://localhost:27017/es6NodeTest'
+  },
   cert: '',
   key: '',
   loginURL: '/login',
