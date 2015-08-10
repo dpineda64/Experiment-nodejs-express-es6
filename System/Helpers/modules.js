@@ -1,3 +1,4 @@
+/*jslint node: true , esnext: true*/
 'use strict';
 
 const fs = require('fs');
@@ -32,4 +33,4 @@ module.exports = (app , config) => {
   }
   const modules = new Modules();
   modules.init();
-}
+};

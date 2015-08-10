@@ -1,3 +1,4 @@
+/*jslint node: true , esnext: true*/
 /* eslint-disable key-spacing */
 
 'use strict';
@@ -18,17 +19,17 @@ const config = require('../config');
 // Express Setup
 const app = express();
 
+// Globals
+global._config = config;
+
+// Mongoose Setup
+mongoose.connect(config.database.url);
+
 app.use(morgan(process.env.LOGFORMAT || 'dev'));
 app.use(bodyParser.urlencoded({extended : true}));
 app.use(bodyParser.json({type: 'application/json'}));
 app.use(cookieParser());
 app.use(express.static(config.mainPath + '/public'));
-
-// Session Setup
-app.use(session({
-  secret: fs.readFileSync(config.secretFile, 'utf-8'),
-  secure: false
-}));
 
 // csurf Setup
 const csfrValue = (req) => {
@@ -38,6 +39,12 @@ const csfrValue = (req) => {
         || (req.headers['x-xsrf-token']);
   return token;
 };
+
+// Session Setup
+app.use(session({
+  secret: fs.readFileSync(config.secretFile, 'utf-8'),
+  secure: false
+}));
 
 // Helmet Setup
 app.use(helmet.hidePoweredBy());

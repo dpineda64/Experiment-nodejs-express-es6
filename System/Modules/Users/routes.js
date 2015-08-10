@@ -1,3 +1,4 @@
+/*jslint node: true , esnext: true*/
 'use strict';
 
 const express = require('express');
@@ -6,6 +7,7 @@ const User = require('./model');
 const fs = require('fs');
 const jwt = require('jsonwebtoken');
 const isLoggedIn = require(_config.SystemPath + '/Helpers/interceptors').isLoggedIn;
+//const isloggedinlocal = require(_config.SystemPath + '/Helpers/interceptors').isloggedinlocal;
 const auth = require(_config.SystemPath + '/Helpers/auth');
 
 console.log(auth.generateHash('hello'));
@@ -32,7 +34,7 @@ routes.post('/signup' , (req , res) => {
       newUser.save((err) => {
         if(err) throw err;
         res.json({message: 'Sucess Signup!' , success: true});
-      })
+      });
     }
   });
 });
@@ -55,7 +57,8 @@ routes.post('/authenticate', (req, res) => {
           success: true,
           message: 'Success Authentication',
           token: token
-        })
+        });
+        //isloggedinlocal.setLocalStorage(token);
       }
     }
   });
@@ -63,8 +66,7 @@ routes.post('/authenticate', (req, res) => {
 
 // Profile Page
 routes.get('/profile' , isLoggedIn , (req, res) => {
-  res.send(req.user);
-  console.log(req);
+  //res.send(req.user + ' ' + isloggedinlocal.setLocalStorage(token));
 });
 
 module.exports = routes;
