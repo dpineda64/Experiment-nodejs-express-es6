@@ -1,0 +1,26 @@
+{
+  "name": "es6_experiment",
+  "version": "0.0.1",
+  "homepage": "https://github.com/dpineda64/Experiment-nodejs-express-es6",
+  "authors": [
+    "Daniel Pineda <dpineda@guatuneed.com>"
+  ],
+  "description": "little example using es6 with nodejs + express",
+  "main": "bin/bootstrap.js",
+  "moduleType": [
+    "es6"
+  ],
+  "keywords": [
+    "es6",
+    "nodejs",
+    "express"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

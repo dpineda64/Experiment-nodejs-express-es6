@@ -1,0 +1,6 @@
+{
+  "maxerr": 100,
+  "jquery": true,
+  "node": true,
+  "esnext": true
+}
