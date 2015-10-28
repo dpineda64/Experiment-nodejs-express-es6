@@ -14,6 +14,7 @@ const helmet = require('helmet');
 const csfr = require('csurf');
 const session = require('express-session');
 const mongoose = require('mongoose');
+const MongoStore = require('connect-mongo')(session);
 const config = require('../config');
 
 // Express Setup
@@ -29,7 +30,7 @@ app.use(morgan(process.env.LOGFORMAT || 'dev'));
 app.use(bodyParser.urlencoded({extended : true}));
 app.use(bodyParser.json({type: 'application/json'}));
 app.use(cookieParser());
-app.use(express.static(config.mainPath + '/public'));
+app.use(express.static(config.mainPath + '/dist'));
 
 // csurf Setup
 const csfrValue = (req) => {
@@ -42,8 +43,13 @@ const csfrValue = (req) => {
 
 // Session Setup
 app.use(session({
-  secret: fs.readFileSync(config.secretFile, 'utf-8'),
-  secure: false
+  secret: '2a521234sasdasdAkahslkjahkJS',
+  saveUninitialized: true,
+  resave: true,
+  store: new MongoStore({
+    url: config.database[app.settings.env],
+    collection: 'sessions'
+  })
 }));
 
 // Helmet Setup
