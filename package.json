@@ -53,6 +53,7 @@
     "query-string": "^2.4.0",
     "traceur": "0.0.91",
     "typescript": "^1.5.3",
-    "uglify": "^0.1.5"
+    "uglify": "^0.1.5",
+    "connect-mongo": "0.8.2"
   }
 }
