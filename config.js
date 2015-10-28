@@ -1,4 +1,4 @@
-/* eslint-disable key-spacing */
+/* jshint esnext: true*/
 
 const fs = require('fs');
 const path = require('path');
@@ -8,11 +8,12 @@ const config = {
   port: process.env.PORT || 3000,
   certFile: process.env.CERT || '',
   keyFile: process.env.KEY || '',
+  mainPath : __dirname,
   secretFile: process.env.SECRET || path.join(__dirname, '/secret_session'),
   SystemPath: path.join(__dirname, '/System'),
   database: {
-    "name": "es6NodeTest",
-    "url": process.env.MONGO_url || 'mongodb://localhost:27017/es6NodeTest'
+    production: process.env.MONGO_URL || 'mongodb://localhost:27017/es6NodeTest',
+    test: process.env.MONGO_TEST || 'mongodb://localhost:27017/es6NodeTest_test'
   },
   cert: '',
   key: '',
