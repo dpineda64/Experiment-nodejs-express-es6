@@ -47,6 +47,10 @@ gulp.task('views' , function(){
     .pipe(gulp.dest('dist/templates'));
 });
 
+gulp.task('console', function(){
+   console.log('Gulp task')
+});
+
 gulp.task('default' , ['browser-sync' , 'styles', 'views' , 'babel'] , function(){
   gulp.watch(['app/less/*.less', 'app/less/**/*.less'], ['styles']);
   gulp.watch(['app/es6/*.js', 'app/es6/**/*.js'] , ['babel']);
